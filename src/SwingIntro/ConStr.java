@@ -6,14 +6,11 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class ConStr {
-
-
-		// TODO Auto-generated method stub
-		/* To read info from dataset 
+		/* To read info from Database 
 		 * We will need 
 		 * Connection class instance
 		 * Statement Class instance
-		 * Resultset class instance
+		 * ResultSet class instance
 		 * */
 		public Connection con;
 		Statement stmt;

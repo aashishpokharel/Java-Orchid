@@ -53,25 +53,28 @@ public class SwingLogin extends JFrame implements ActionListener{
 		btnlogin.setBounds(120, 150,100,25);
 		btnnew.setBounds(120, 200,100,25);
 	}
+	@SuppressWarnings("deprecation")
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-//		String user = "Aashish";
-//		String pwd = "Aashish";
-//		if(user.equals(txtuser.getText().toString()) && pwd.equals(txtpass.getText().toString())) {
-////			JOptionPane.showMessageDialog(null, "Hurray! Login Successful.");
+		String user = "Aashish";
+		String pwd = "Aashish";
+		if(user.equals(txtuser.getText().toString()) && pwd.equals(txtpass.getText().toString())) {
+			JOptionPane.showMessageDialog(null, "Hurray! Login Successful.");
 //			new MainForm();
 //			this.setVisible(false);
-//		}else {
-//			JOptionPane.showMessageDialog(null, "Oops! Login Failed.");
-//		}
+		}else {
+			JOptionPane.showMessageDialog(null, "Oops! Login Failed.");
+		}
 		
 		
 		if(e.getSource() == btnlogin) {
 //			ConStr conn = new ConStr();
 			try {
-				pmstmt = conn.con.prepareStatement("Select * from STUDENT where firstname = ?");
+				pmstmt = conn.con.prepareStatement("Select * from STUDENT where firstname = ? and lname = ?");
 				pmstmt.setString(1, txtuser.getText());
+				pmstmt.setString(1, txtpass.getText());
+				
 				rs= pmstmt.executeQuery();
 				if(rs.next()) {
 					JOptionPane.showMessageDialog(null,"Login SUccess");
